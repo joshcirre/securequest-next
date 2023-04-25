@@ -2,7 +2,7 @@ import type { NextRequest } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 import { codeBlock, oneLine } from 'common-tags'
 import GPT3Tokenizer from 'gpt3-tokenizer'
-import { CreateChatCompletionRequest, CreateCompletionRequest } from 'openai'
+import { CreateChatCompletionRequest } from 'openai'
 import { ApplicationError, UserError } from '@/lib/errors'
 
 // OpenAIApi does currently not work in Vercel Edge Functions as it uses Axios under the hood.
@@ -138,7 +138,10 @@ export default async function handler(req: NextRequest) {
       model: 'gpt-3.5-turbo',
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 512,
-      temperature: 0,
+      temperature: 0.7,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0,
       stream: true,
     }
 
