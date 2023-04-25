@@ -1,0 +1,93 @@
+Security Policy
+---------------
+
+We take security and privacy seriously, adhering to enterprise-level security standards that keep your customer data protected.
+
+* * * * *
+
+#### Compliance
+
+![HIPAA Compliant logo](https://hs-marketing.imgix.net/images/uploads/CompanyPage--hipaa-logo.png?auto=compress,format&fit=scale&dpr=2)
+
+#### HIPAA PLUS PLAN
+
+Health Insurance Portability and Accountability Act
+
+*Docs is not subject to HIPAA*
+
+![SOC2 Type 1 Certified logo](https://www.helpscout.com/images/uploads/CompanyPage--security-aicpa-soc2-type1.svg)
+
+#### SOC2 Type 1 Certified
+
+For Security and Availability
+
+![PCI logo](https://hs-marketing.imgix.net/images/uploads/CompanyPage--pci-logo.png?auto=compress,format&fit=scale&dpr=2)
+
+#### PCI Level III
+
+Payment Card Industry Data Security Standard
+
+![CCPA logo](https://hs-marketing.imgix.net/images/uploads/CompanyPage--ccpa.png?auto=compress,format&fit=scale&dpr=2)
+
+#### California Consumer Privacy Act
+
+Privacy Protections
+
+![GDPR logo](https://hs-marketing.imgix.net/images/uploads/CompanyPage--gdpr-logo.png?auto=compress,format&fit=scale&dpr=2)
+
+#### GDPR Readiness
+
+General Data Protection Regulation
+
+*Docs is not subject to GDPR*
+
+#### Security Team
+
+We have a globally distributed infrastructure and security team on-call 24/7. Our team is constantly monitoring security notifications from all 3rd party software libraries and if identified, we immediately apply any relevant security patches as soon as they are released. Our engineers work together with the product teams to ensure that all of Help Scout's code and infrastructure follows a secure development lifecycle process.
+
+#### Infrastructure
+
+All of Help Scout's application and data infrastructure is hosted on Amazon Web Services (AWS), a highly scalable cloud computing platform with end-to-end security and privacy features built in.
+
+Designed with redundancy, fault tolerance and disaster recovery at the forefront, our services are distributed across three separate availability zones (data centers). All our infrastructure is within our virtual private cloud (VPC) with production access restricted to operations support staff only. This allows us to leverage complete firewall protection, private IP addresses and other security features.
+
+For more specific details regarding AWS security, please refer to [](https://aws.amazon.com/security/)<https://aws.amazon.com/security/>.
+
+#### Uptime and Data Availability
+
+We strive for a 99.99% uptime across all our products and to support that, we host our monitoring and logging systems outside of AWS and employ a variety of tools to accurately monitor and report on any anomaly that could impact the delivery of our services.
+
+All of our services are deployed in at least three availability zones to mitigate any single data center availability issues. In the event of such an emergency that would prevent AWS from delivering service to any of the availability zones (AZ) in a region, we do not have the ability to retrieve data until service in our AZs is restored.
+
+In the unlikely event that data stored in the Help Scout database were to be lost or damaged, we would be able to restore from backup with a loss of data no more than 5 minutes. During this time we would not provide additional contingency plans to delivery data due to the very short nature of the recovery time.
+
+#### Data and Data Center
+
+All data is stored in the USA in HIPAA compliant, multi-tenant datastores in Amazon Web Services-controlled data centers, and is protected under a signed BAA with AWS. Only those within Amazon who have a legitimate business need to have such information know the actual location of these data centers, and the data centers themselves are secured with a variety of physical controls to prevent unauthorized access.
+
+#### Application
+
+Through the use of automated and manual analysis, as well as constant security review of 3rd party libraries, we ensure to the best of our abilities that we are delivering products that are free from security defects and that data is processed strictly in compliance with our customer's instructions. All Help Scout web application communications are PCI compliant and support TLS v1.2, and cannot be viewed by a third party. We enforce the same level of encryption used by banks and financial institutions.
+
+Additionally, we support a number of security focused features to help keep your data safe
+
+-   Data encryption - All customer data is encrypted at rest including: user email addresses, user passwords, API keys, including 3rd party keys stored by Apps.
+-   Company-specific data is kept separate through logical separation at the data tier, based on application-level access permissions and roles.
+-   Authentication - Help Scout supports both 2FA access (via SMS and authenticator app) for Help Scout credentials or SSO through Google Apps. Plus plan users can optionally authenticate via any SAML-compatible Identity Provider.
+-   IP Restrictions PLUS PLAN - This feature allows you to limit access access to your Help Scout account to a predefined list of IP addresses
+-   API Security - In our v2.0 API we support OAuth/SAML authentication and a UI for revoking device tokens.
+
+#### Email Security
+
+Help Scout supports TLS encryption on all inbound and outbound email. For an explanation of how email encryption works, we recommend [this overview from Google](https://support.google.com/transparencyreport/answer/7381230).
+
+#### Engineering and Operational Practices
+
+We design all services with high availability in mind. Our goal is to deliver 99.99% uptime across all our products. In order to achieve this goal, we follow a number of engineering best practices
+
+-   Immutable infrastructure - We don't make changes to live code or running servers in production. Where applicable, we treat both our software and our infrastructure configuration as code. Which means all changes go through a formal code review, automated testing and automated deployment process.
+-   Continuous integration and delivery - We are using continuous integration and deployment automation and configuration management tools to build, test and deploy code multiple times a day.
+-   Incident response - Our dedicated infrastructure and security team is on a rotating on-call schedule to respond to any security or availability incidents immediately.
+-   Security audits - Regularly, an independent security firm execute a white-box penetration test audit across our system and code base. On request, the results of the latest audit can be provided to current or potential customers.
+-   Monthly PCI scanning - We run a PCI scan every month to maintain ongoing Level 3 PCI compliance, adhering to stringent industry standards for storing, processing and transmitting credit card information online. In addition to encrypting customer payment information. Any uncovered vulnerability is prioritized, resolved and deployed as soon as possible following discovery.
+-   Permission and administrative controls - Help Scout enables permission levels to be set for any employees with access to Help Scout. We follow the principle of least privilege for any system with access to personal data and have automated tool-based control and logging of data access, entry, deletion, and modification.
