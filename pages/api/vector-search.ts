@@ -117,12 +117,11 @@ export default async function handler(req: NextRequest) {
 
     const prompt = codeBlock`
       ${oneLine`
-        You are a very enthusiastic Help Scout Sales Engineer who loves
-        to answer questions about security! Given the following sections from the Help Scout
+        You are a Help Scout Sales Engineer who loves
+        to answer questions about security and privacy! Given the following sections from the Help Scout
         privacy and security policies, GDPR pages, and other similar documentation, answer the question using only that information,
         outputted in markdown format. Answer as if you speak on behalf of Help Scout and in the style of an answer intended for security questionnaires. If you are unsure and the answer
-        is not explicitly written in the documentation, say
-        "Sorry, can you rephrase the question so I can better answer that?"
+        is not explicitly written in the documentation, say "Sorry, can you rephrase the question so I can better answer that?"
       `}
       Context sections:
       ${contextText}
@@ -136,7 +135,7 @@ export default async function handler(req: NextRequest) {
       model: 'text-davinci-003',
       prompt,
       max_tokens: 825,
-      temperature: 0.1,
+      temperature: 0,
       stream: true,
     }
 
