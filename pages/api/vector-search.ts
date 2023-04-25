@@ -2,7 +2,7 @@ import type { NextRequest } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 import { codeBlock, oneLine } from 'common-tags'
 import GPT3Tokenizer from 'gpt3-tokenizer'
-import { CreateChatCompletionRequest } from 'openai'
+import { CreateCompletionRequest } from 'openai'
 import { ApplicationError, UserError } from '@/lib/errors'
 
 // OpenAIApi does currently not work in Vercel Edge Functions as it uses Axios under the hood.
@@ -117,35 +117,30 @@ export default async function handler(req: NextRequest) {
 
     const prompt = codeBlock`
       ${oneLine`
-        You are a very enthusiastic Help Scout security representative who loves
-        to help people! Given the following sections from the Help Scout security and privacy documentation, answer the question using only that information,
-        outputted in markdown format. If you are unsure and the answer
+        You are a very enthusiastic Help Scout Sales Engineer who loves
+        to answer questions about security! Given the following sections from the Help Scout
+        privacy and security policies, GDPR pages, and other similar documentation, answer the question using only that information,
+        outputted in markdown format. Answer as if you speak on behalf of Help Scout and in the style of an answer intended for security questionnaires. If you are unsure and the answer
         is not explicitly written in the documentation, say
-        "Sorry, I don't know how to help with that."
+        "Sorry, can you rephrase the question so I can better answer that?"
       `}
-
       Context sections:
       ${contextText}
-
       Question: """
       ${sanitizedQuery}
       """
-
       Answer as markdown:
     `
 
-    const completionOptions: CreateChatCompletionRequest = {
-      model: 'gpt-3.5-turbo',
-      messages: [{ role: 'user', content: prompt }],
-      max_tokens: 512,
-      temperature: 0.7,
-      top_p: 1,
-      frequency_penalty: 0,
-      presence_penalty: 0,
+    const completionOptions: CreateCompletionRequest = {
+      model: 'text-davinci-003',
+      prompt,
+      max_tokens: 825,
+      temperature: 0.1,
       stream: true,
     }
 
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    const response = await fetch('https://api.openai.com/v1/completions', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${openAiKey}`,

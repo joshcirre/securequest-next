@@ -133,8 +133,8 @@ export function SearchDialog() {
                         return
                     }
 
-                    const completionResponse: CreateChatCompletionResponse = JSON.parse(e.data)
-                    const text = completionResponse.choices[0].message?.content
+                    const completionResponse: CreateCompletionResponse = JSON.parse(e.data)
+                    const text = completionResponse.choices[0].text
 
                     setAnswer((answer) => {
                         const currentAnswer = answer ?? ''
@@ -180,7 +180,7 @@ export function SearchDialog() {
             >
                 <Search width={15} />
                 <span className="border border-l h-5"></span>
-                <span className="inline-block ml-4">Search...</span>
+                <span className="inline-block ml-4">Ask Help Scout...</span>
                 <kbd
                     className="absolute right-3 top-2.5
           pointer-events-none inline-flex h-5 select-none items-center gap-1
