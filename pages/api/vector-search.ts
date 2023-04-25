@@ -2,7 +2,7 @@ import type { NextRequest } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 import { codeBlock, oneLine } from 'common-tags'
 import GPT3Tokenizer from 'gpt3-tokenizer'
-import { CreateCompletionRequest } from 'openai'
+import { CreateChatCompletionRequest, CreateCompletionRequest } from 'openai'
 import { ApplicationError, UserError } from '@/lib/errors'
 
 // OpenAIApi does currently not work in Vercel Edge Functions as it uses Axios under the hood.
@@ -117,9 +117,8 @@ export default async function handler(req: NextRequest) {
 
     const prompt = codeBlock`
       ${oneLine`
-        You are a very enthusiastic Supabase representative who loves
-        to help people! Given the following sections from the Supabase
-        documentation, answer the question using only that information,
+        You are a very enthusiastic Help Scout security representative who loves
+        to help people! Given the following sections from the Help Scout security and privacy documentation, answer the question using only that information,
         outputted in markdown format. If you are unsure and the answer
         is not explicitly written in the documentation, say
         "Sorry, I don't know how to help with that."
@@ -132,18 +131,18 @@ export default async function handler(req: NextRequest) {
       ${sanitizedQuery}
       """
 
-      Answer as markdown (including related code snippets if available):
+      Answer as markdown:
     `
 
-    const completionOptions: CreateCompletionRequest = {
-      model: 'text-davinci-003',
-      prompt,
+    const completionOptions: CreateChatCompletionRequest = {
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: prompt }],
       max_tokens: 512,
       temperature: 0,
       stream: true,
     }
 
-    const response = await fetch('https://api.openai.com/v1/completions', {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${openAiKey}`,
