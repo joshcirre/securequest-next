@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { SSE } from 'sse.js'
-import type { CreateChatCompletionResponse } from 'openai'
+import type { CreateCompletionRequest } from 'openai'
 import { X, Loader, User, Frown, CornerDownLeft, Search, Wand } from 'lucide-react'
 
 function promptDataReducer(
@@ -133,7 +133,7 @@ export function SearchDialog() {
                         return
                     }
 
-                    const completionResponse: CreateCompletionResponse = JSON.parse(e.data)
+                    const completionResponse: CreateCompletionRequest = JSON.parse(e.data)
                     const text = completionResponse.choices[0].text
 
                     setAnswer((answer) => {
