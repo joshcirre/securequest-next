@@ -1,0 +1,195 @@
+# Where do questionnaires go?
+
+**Currently in the sales pipeline:** Goes to the AE listed in Salesforce.
+
+**Existing customer 25+:** Goes to the account&#39;s AM.
+
+**Existing customer 11-25+:** At Support&#39;s discretion, escalate to the account&#39;s AM. (Look for if they seem to have growth potential.) We may still say no, so _don&#39;t promise them we&#39;ll fill it out_.
+
+**Existing customer under 1-10:** Except in unusual circumstances (a large company buys a smaller company, for instance), we will not fill out security surveys at this size.
+
+# Help Scout Security Guide
+
+Generally speaking, security surveys should be completed by Josh Cirre. Josh will act as the point person between the requesting company and the Security and Engineering team who can help provide additional answers.
+
+If you are looking for documents, check the [Compliance Help Scout](https://helpscout.slab.com/posts/ygdbwwmd)page; it&#39;s where our compliance team puts updated docs.
+
+# Company Profile
+
+**Help Scout, Inc.** was founded in 2011, and is a privately held organization.
+
+## Contacts
+
+**Virtual Mailing Address (while Boston office is being subleased)**
+
+> **Help Scout PBC**
+> PO Box 55071
+> PMB 78505
+> Boston, Massachusetts 02205-5071 US
+
+**Phone**
+
+- Office phone:(857) 250-2590
+- General business:(877) 435-7726
+
+**Email**
+
+- Support: help@helpscout.com
+- Security Reports: security@helpscout.com
+- Privacy Issues: privacy@helpscout.com
+
+## BBB Rating
+
+We have an A+ rating from the Better Business Bureau:
+
+[BBB Overview: Help Scout](https://www.bbb.org/us/ma/boston/profile/computer-consultant/help-scout-0021-186582)
+
+## Litigation History
+
+There have been no material claims or judgements against Help Scout.
+
+## Security Breach and Data Loss
+
+In the last 5 years, Help Scout has not suffered a data loss or security breach. In the event of a breach or in data loss that impacts your organization, we’ll notify you directly.
+
+## Services Provided
+
+Help Scout is a cloud-based (SaaS) help desk. Your team can also use our mobile apps for iOS and Android devices to respond to customer help requests. We also offer Docs, a hosted knowledge-base product, and Beacon, an embeddable widget.
+
+## Data Handled
+
+Help Scout handles data that customers send to Help Scout as part of their help request. This data could contain sensitive personal or health information. For example: Name, date of birth, email address, credit card details, social security numbers, addresses, etc.
+
+# Organizational Security
+
+## Personnel
+
+Help Scout is a remote company with employees across many countries.
+
+All Help Scout employees sign confidentiality agreements, and undergo regular privacy and security training. We perform background checks on all employees where applicable. In some cases, we are unable to perform background checks on employees outside of the US.
+
+Help Scout employees are not required to hold specific security certifications, such as CISSP, GIAC, CISA, or CISM.
+
+## Personnel: Workplace Security
+
+Help Scout employees are provided a company computer, and follow our workstation security and privacy requirements. We use an endpoint monitoring system. These policies are reviewed during new employee on-boarding process and a license for a company approved password manager is provided at that time.
+
+Employees are allowed to work from public locations. We require a VPN as well as different levels of multi-factor authentication to access production databases. We follow all NIST password guidelines. All employees ~~with access to ePHI~~ are required to follow our password security policy. All access is logged by IP, and production data can only be accessed by select individuals.
+
+Only company-provided computers are allowed local storage of possible scoped data. Data is destroyed after use. If employees leave Help Scout, they’re required to destroy remaining local data and return hardware to Help Scout.
+
+## Anti-virus and Malware
+
+We rely on the built in antimalware capabilities of each operating system. This, combined with a strategy that includes file system encryption, staying on top of OS and browser security updates, using secure passwords with a password manager, multi-factor authentication, and strong security and awareness training is better at protecting against cyber attacks than third party commercial antivirus or anti-malware software.
+
+## Business Continuity Plan and Disaster Recovery
+
+We have D&amp;R plans for each data store where customer data and ePHI is stored. We review D&amp;R plans and policy on a continuous basis when we add new services to our infrastructure. We have a Business Contingency Plan (BCP)that provides a structured approach to responding to unplanned incidents that threaten our system infrastructure and key business processes.
+
+Plans cover contingency strategies for software, hardware, and networking. They also define responsibilities of key team members who execute these plans. We have successfully tested our customer database failover mechanism with zero downtime.
+
+# Data Center Security
+
+All of Help Scout’s application and data infrastructure is hosted in the United States (North Virginia and Ohio) on Amazon Web Services (AWS US-East-1 data center), a highly scalable cloud computing platform with end-to-end security and privacy features built in. Designed with redundancy, fault tolerance and disaster recovery at the forefront, our services are distributed across three separate availability zones (datacenters).
+
+All our infrastructure is within our virtual private cloud (VPC) with production access restricted to Operations support staff only. This allows us to leverage complete firewall protection, private IP addresses and other security features.
+
+For more specific details regarding AWS security, please refer to:
+
+[AWS Security Overview](https://aws.amazon.com/security/)
+
+# Application Security
+
+All Help Scout web application communications are PCI compliant and support TLS v1.2. Outbound SMTP support TLS 1.2 and will fall back to lower version of TLS if the sending server does not support TLS 1.2; emails will be sent unencrypted if no encryption is supported by the recipient server.
+
+All customer data is encrypted at rest including: user email addresses, user passwords, API keys, including 3rd party keys stored by Apps. Backups are performed daily, stored across at least three separate availability zones, behind a VPC, and protected through AWS’s Key Management System. Passwords required for access are salted with a one-way hashing algorithm.
+
+We support HTTPS encryption, ephemeral elliptic curve Diffie-Hellman cryptographic key exchange signed with RSA and ECDSA, and for supported clients perfect forward secrecy (PFS) methods to help protect traffic against compromised key or cryptographic breakthrough. We use only industry standard encryption technologies.
+
+Company-specific data is kept separate through logical separation at the data tier, based on application-level access permissions and roles.
+
+# Operations Security
+
+## Testing
+
+We use segregated environments for testing new features and new builds. In some cases, customer data can be used in a mirrored environment. We use continuous integration and deployment automation and configuration management tools to build, test and deploy code multiple times a day.
+
+## Data Control
+
+If you cancel your Help Scout service and delete your account, we delete all data in accordance with our Terms of Service and Privacy Policy. However, after an account is deleted, we will not hold data longer than 90 days.
+
+You can export account data from Help Scout at any time. Should you need to cancel your account and find a new help desk vendor, you are responsible for all data migration work using our API. The API is built with OAuth 2 and CORS support. You can write to your Help Scout account, as well as pull data down and out of your Help Scout account as needed.
+
+[Help Desk API Documentation](https://developer.helpscout.com/mailbox-api/)
+
+# Audits and Compliance
+
+Every year we have an independent security firm execute a white-box penetration test audit across our system and code base. On request, the results of the latest audit can be provided to current or potential customers. We do not allow customers to conduct their own audits.
+
+Customers must sign an NDA to receive our Penetration Testing results. Lisa can help arrange an NDA.
+
+We run a PCI scan every quarter to maintain ongoing Level 1 PCI compliance, adhering to industry standards for storing, processing and transmitting credit card information online. Any uncovered vulnerability is prioritized, resolved and deployed as soon as possible following discovery.
+
+Help Scout has been evaluated for SOC 2 Type 1 compliance and is in the process of being certified for Type 2. We can also provide a SOC 1 and SOC 2 report from our hosting provider on request.
+
+Help Scout has not been evaluated for \*\*\*\* ISO 9000, ISO 14000 or ISO 27001 compliance.
+
+## Third-party Vendors
+
+To protect our customer’s personal data as required by the GDPR, Help Scout imposes data protection terms on all sub-processors. You may object to Help Scout’s selection or replacement of sub-processors, provided the objection is based on reasonable grounds related to data protection. In this case, Help Scout will either not appoint, or replace the sub-processor. If that’s not possible, you can choose to terminate your Help Scout account.
+
+[Third Party Vendors](https://www.helpscout.net/company/legal/sub-processors/)
+
+## HIPAA
+
+Help Scout maintains ongoing compliance with the U.S. Health Insurance Portability and Accountability Act (HIPAA) and is able to process, maintain and store protected health information for any entities restricted by these regulations. Help Scout offers a BAA for covered entities and sub-contractors. Due to the cost of maintaining compliance with HIPAA regulations, we require customers that sign a BAA to be on the Plus or Company plans.
+
+| **Service** | **HIPAA Compliant?** |
+| ----------- | -------------------- |
+| Help Scout  | Yes                  |
+| Beacon      | Yes                  |
+| Docs        | No                   |
+| Mobile App  | Yes                  |
+
+See [https://docs.helpscout.com/article/330-hipaa](https://docs.helpscout.com/article/330-hipaa)
+
+**Notes**
+
+- HIPAA compliance does not apply to our Docs knowledge base product. Since Docs is designed to make content publicly available to other people, ePHI should never be stored in a knowledge base article.
+- Help Scout does not use a secure message broker for our email service. Health care providers who are planning on using Help Scout to communicate with patients should be aware of this gap. We do not currently have plans to implement a secure message broker.
+
+[Attestation of Compliance](https://helpscout.slab.com/posts/pci-attestations-guigwxur)
+
+# Incident and Vulnerability Management
+
+We have a globally distributed infrastructure and security team on-call 24/7 to respond to security or availability incidents immediately.
+
+## Incident
+
+We strive for a 99.99% uptime across all our products and to support that, we host our monitoring and logging systems outside of AWS and employ a variety of tools to accurately monitor and report on any anomaly that could impact the delivery of our services.
+
+Security reports can be sent to: security@helpscout.com. Maintenance windows and expected downtime, as well as live performance updates are posted on the Help Scout status page:
+
+[Help Scout Status](https://status.helpscout.net/)
+
+[Help Scout Uptime](https://docs.helpscout.net/article/1069-help-scout-uptime)
+
+## Scheduled Maintenance
+
+In rare cases, we schedule maintenance to keep Help Scout up and running smoothly. Maintenance windows may result in planned downtime. Planned maintenance windows, timing, and details are posted to the status site at least 7 days in advance.
+
+## Vulnerability
+
+We monitor security notifications from all third-party software libraries and if identified, we immediately apply relevant security patches as soon as they are released. Our engineers work together with the product teams to ensure that all of Help Scout’s code and infrastructure follows a secure development lifecycle process. We actively monitor and mitigate DDoS attacks.
+
+# Service Level Agreements
+
+Help Scout does not enter in to unique contracts or service level agreements with customers.
+
+# Application Support
+
+Help Scout is a web-based help desk. It works on all modern operating systems and all modern browsers, though we do not support legacy versions of IE. No web servers or local environments are needed to use Help Scout. Users do not need local write access, or admin rights on the local machine. Some browser settings(optional browser notifications) are needed to be notified of customer updates within your Help Scout account. Browsers need to be able to accept cookies. Installation of third-party tools or programs is not required to use Help Scout.
+
+We offer SAML SSO for customers on the Plus (as an add-on) and Company plans. We support Google OAuth and SAML SSO.
+
+Your employees can also access Help Scout from our dedicated iOS and Android apps. Help Scout mobile apps are available for download in the Apple AppStore and Google Play. A Help Scout login is required to use our mobile apps. Our mobile app authentication methods mirror our web app authentication methods.
